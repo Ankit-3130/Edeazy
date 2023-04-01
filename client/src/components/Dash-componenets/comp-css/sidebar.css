@@ -1,0 +1,31 @@
+.side-wrap{
+    background-color: #FDF8FF;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.side-icons{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.icons-links{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+}
+.icons-links:visited{
+    color: inherit;
+}
+.side-icons label{
+    cursor: pointer;
+    font-size: medium;
+}
