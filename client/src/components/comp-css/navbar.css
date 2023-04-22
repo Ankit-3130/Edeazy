@@ -1,14 +1,31 @@
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: inherit;
+}
 nav{
     padding: 0 2%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    height:10vh ;
+    background-color: #9932CC;
+    color: white;
+    z-index:1 ;
+    position:sticky;
+    top:0;
+    box-shadow: 0 4px 10px -4px rgba(0,0,0,1.2);
 }
 .icon{
     display: flex;
     flex: 0.125;
     justify-content: center;
+}
+.icon span{
+    font-family: 'Dancing Script', cursive;
+    font-size: xx-large;
 }
 .listitem{
     flex: 0.625;
@@ -29,4 +46,93 @@ nav{
 }
 .authenticate button{
     margin: 0 4%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 90%;
+    width:40%;
+    padding: 4%;
+    background-color: #efe9f0;
+    font-weight: bold;
+    font-size: medium;
+    color: #9932CC;
+    cursor:pointer;
+    transition:transform .5s;
+}
+button{
+    background: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    height: 90%;
+    cursor: pointer;
+}
+.authenticate button:hover{
+    transform: scale(1.1);
+}
+.menu{
+    display: none;
+    
+}
+.menu-items{
+   position: fixed;
+   width: 100%;
+    z-index: 1;
+    display: none;
+    transition: display 1s;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #F5FEFD;
+
+}
+.menu-items span{
+    margin: 2%;
+    max-height: 500px;
+}
+.menu-items div{
+    margin:2%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-items div a {
+
+    margin: 0 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    text-decoration: none;
+
+}
+.menu-items div a button{
+    background-color: #9932CC;
+    margin:0 2%;
+    flex:1;
+    border-radius: 10px;
+    width:1%;
+    padding: 4%;
+}
+.open{
+    display: none;
+}
+@media (max-width:1000px){
+    .listitem{
+        display: none;
+
+    }
+    .authenticate{
+        display: none;
+    }
+    .menu{
+        display: flex;
+    }
+    nav{
+    justify-content: space-between;
+    }
+    .open{
+        display: flex;
+    }
 }

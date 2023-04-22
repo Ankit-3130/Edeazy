@@ -11,11 +11,46 @@
     display: flex;
     z-index: 0;
     background-color: #fff;
-     /* background-color: #FDF8FF;  */
     flex:20;
+    overflow: hidden;
+
+}
+.response-btn{
+    display: none;
+    position: absolute;
+    z-index: 3;
+    height: 100vh;
 }
 .dash-header{
-    
     z-index: 4;
     position: relative;
+}
+
+@media(max-width:768px){
+    .dash-body{
+        flex-direction:row;
+    }
+    .dash-sidebar{
+        flex: 0;
+        display: flex;
+        z-index: 3;
+        position: absolute;
+        height: 92vh;
+        box-shadow: none;
+    }
+    .response-btn{
+        display: block;
+        position: absolute;
+        z-index: 4;
+    }
+    
+    .side{
+        display: none;
+    }
+    .res-1{
+        position: relative;
+    }
+}
+.res{
+    display: none;
 }

@@ -1,21 +1,53 @@
-.outer_div{
-    padding: 2%;
-    width: 30%;
-    height: 80vh;
-    margin:24px auto;
-    background-color:#fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: linear-gradient( to right,#96dedb75 , #50c9c368);
+.reg-wrap {
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(#A88BEB, #F8CEEC);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.profession{
+
+.outer_div {
+    padding: 2%;
+    width: 60%;
+    height: 80vh;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(to right, #5F0A87, #A4508B);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #96dedb75;
+    border-radius: 10px;
+}
+
+.profession {
     padding: 1%;
     height: 8vh;
-    width:100%;
+    width: 100%;
     background-color: aliceblue;
     border-radius: 30px;
+
 }
-.prof-btn{
+
+.prof-btn {
     border: none;
     outline: none;
     cursor: pointer;
@@ -23,15 +55,22 @@
     width: 50%;
     border-radius: 30px;
     background: transparent;
+    color: #170E13;
+
 }
-.colr{
-    background: linear-gradient( to right,#96deda , #50c9c3);
+
+.colr {
+    background: linear-gradient(to right, #170E13, #7A7ADB);
+    color: white;
 }
-.form-data{
+
+.form-data {
     display: block;
     padding: 4%;
+
 }
-.form-data form{
+
+.form-data form {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -39,13 +78,16 @@
     align-items: center;
     padding: 4%;
 }
-label{
+
+label {
     font-size: large;
     font-weight: bold;
     margin: 2% 0;
     display: block;
+    
 }
-input{
+
+input {
     width: 100%;
     height: 6vh;
     margin: 2% 0;
@@ -56,7 +98,8 @@ input{
     border-radius: 30px;
     font-size: large;
 }
-.reg-btn{
+
+.reg-btn {
     width: 50%;
     height: 8vh;
     border-radius: 30px;
@@ -65,6 +108,18 @@ input{
     cursor: pointer;
     margin-top: 4%;
     font-size: large;
-    background: linear-gradient( to right,#96deda , #50c9c3);
+    background: linear-gradient(to right, #170E13, #7A7ADB);
 
+}
+
+@media(min-width:1000px) {
+    .outer_div {
+        width: 35%;
+    }
+}
+
+@media(max-width:600px) {
+    .outer_div {
+        width: 90%;
+    }
 }

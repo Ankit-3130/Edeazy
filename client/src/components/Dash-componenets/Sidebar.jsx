@@ -13,44 +13,35 @@ export const Sidebar = () => {
     return (<>
         <div className="side-wrap">
             <div className="side-icons">
-                <Link className='icons-links' to={"/profile"}>
-
+                <Link className='icons-links' to={"/dashboard/profile"}>
                     <PersonIcon />
                     <label htmlFor="">Profile</label>
                 </Link>
-
-
-
             </div>
             <div className="side-icons">
-                <Link className='icons-links' to={"/chat"}>
-
+                <Link className='icons-links' to={"/dashboard/chat"}>
                     <ChatIcon />
                     <label htmlFor="">Chat</label>
                 </Link>
-
             </div>
             <div className="side-icons">
-                <ClassIcon />
-                <label htmlFor="">Class</label>
+                <Link className='icons-links' to={"/dashboard/classes"}>
+                    <ClassIcon />
+                    <label htmlFor="">Class</label>
+                </Link>
             </div>
             <div className="side-icons">
                 <CalendarMonthIcon />
                 <label htmlFor="">Calender</label>
             </div>
             <div className="side-icons">
-                <Link className='icons-links' to={"/assignment"}>
-
+                <Link className='icons-links' to={"/dashboard/assignment"}>
                     <AssignmentSharpIcon />
                     <label htmlFor="">Assignment</label>
-
                 </Link>
             </div>
-
-
         </div>
         <Outlet />
     </>
-
     )
-}
+};

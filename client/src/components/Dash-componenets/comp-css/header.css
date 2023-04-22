@@ -2,22 +2,28 @@
     margin: 0;
 }
 .header-wrap{
-   
+   color: #fff;
     padding: 0.75vh 2%;
     padding-left: 0;
     display: flex;
-    height: 6vh;
-    background-color: #F0E2FF;
+    height: 8vh;
+    background-color: #9932CC;
+    /* //#F0E2FF */
+    padding: 0 2%;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 10px -2px rgba(0,0,0,.2);
 
 }
 .header-logo{
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    font-size: xx-large;
     display: flex;
     justify-content: center;
     align-items: center;
     flex:1.5;
+    
 }
 .header-profile{
     flex:20;
@@ -33,4 +39,47 @@
 }
 .header-avatar{
     cursor: pointer;
+}
+.profile{
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    width:auto;
+    right: 0;
+    padding: 0 2%;
+    position: absolute;
+    background-color:#F0E2FF ;
+    border-radius: 10px;
+}
+.prof-ele{
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* .prof-ele span{
+    <
+  
+} */
+.prof-ele button{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notification{
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    width:auto;
+    right: 0;
+    padding: 0 2%;
+    position: absolute;
+    background-color:#F0E2FF ;
+    border-radius: 10px;
+}
+.notification span{
+    width: max-content;
+    padding: 3%;
+    
 }
