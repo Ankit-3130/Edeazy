@@ -1,17 +1,22 @@
 const mongoose=require("mongoose");
 
 const userSchema=new mongoose.Schema({
-    fname:{
-        type:String,
-        required:true
-    },
-    lname:{
+    name:{
         type:String,
 
     },
     email:{
         type:String,
         required:true
+    },
+    user_type:{
+        type:String,
+    },
+    institution:{
+        type:String
+    },
+    course:{
+        type:String
     },
     password:{
         type:String,
