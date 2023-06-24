@@ -9,7 +9,7 @@ import Chatroom from './Dash-componenets/Chatroom';
 import Classes from './Dash-componenets/Classes';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-
+import Test from './Dash-componenets/Test';
 export const Dashboard = () => {
   const [open, setOpen] = useState(false);
 
@@ -39,6 +39,7 @@ export const Dashboard = () => {
             <Route path='/' element={<DashProfile />} />
             <Route path='chat' element={<Chatroom />} />
             <Route path="classes" element={<Classes />} />
+            <Route path='test' element={<Test/>}/>
             <Route path='assignment' element={<Assignment />} />
           </Routes>
         </div>

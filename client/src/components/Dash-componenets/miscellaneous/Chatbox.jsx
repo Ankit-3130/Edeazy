@@ -16,7 +16,7 @@ const Chatbox = () => {
 
   const [message, setMessage] = useState([]);
   const [inputmsg, setInputMsg] = useState("");
-  const { chatSelect, user, setChatSelect, selectedChat } = Appstate();
+  const { chatSelect, user, setChatSelect, selectedChat} = Appstate();
   
   //Api call to fetch messages
 
@@ -44,10 +44,10 @@ const Chatbox = () => {
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
-    
-
     // eslint-disable-next-line
   }, []);
+
+
   useEffect(() => {
     fetchMessages();
     selectedChatCompare = selectedChat;
@@ -56,13 +56,9 @@ const Chatbox = () => {
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
       if (
-        !selectedChatCompare || // if chat is not selected or doesn't match current chat
-        selectedChatCompare._id !== newMessageRecieved.chatref._id
+        !selectedChatCompare ||selectedChatCompare !== newMessageRecieved
       ) {
-        // if (!notification.includes(newMessageRecieved)) {
-        //   setNotification([newMessageRecieved, ...notification]);
-        //   setFetchAgain(!fetchAgain);
-        // }
+        
       } else {
         setMessage([...message, newMessageRecieved]);
       }
@@ -98,7 +94,7 @@ const Chatbox = () => {
     <>
       {
         chatSelect ? <>
-          <div style={{ height: "100%", width: "100%", position: "relative" }}>
+          <div style={{ height: "100%", width: "100%", position: "relative",background:"#936cbe3f"}}>
             <Boxhead>
               <button style={{ position: 'absolute', left: '0' }} onClick={() => { setChatSelect(false) }}>
                 <ArrowBackIcon />
@@ -152,7 +148,6 @@ align-items:center;
 `;
 const Boxinput = styled.div`
 height:8%;
-
 display:flex;
 justify-content:center;
 align-items:center;
@@ -171,10 +166,11 @@ border:none;
 outline:none;
 `;
 const MsgBox = styled.div`
-height:78%;
+height:82%;
 display:flex;
 flex-direction:column;
 padding:2%;
 background:#936cbe3f;
+overflow-y: scroll;
 `
 export default Chatbox;

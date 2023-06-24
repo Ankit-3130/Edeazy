@@ -2,8 +2,7 @@ export const getchat = (users,loggeduser) => {
     return users[0]._id === loggeduser._id ? users[1].name : users[0].name;
   }
  export const getchatFull = (users,loggeduser) => {
-    console.log(users);
-    console.log(loggeduser);
+   
     return users[0]._id === loggeduser._id ? users[1] : users[0];
   }
   export const isSameSenderMargin = (messages, m, i, userId) => {

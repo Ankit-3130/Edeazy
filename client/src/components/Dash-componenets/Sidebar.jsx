@@ -2,7 +2,7 @@ import React from 'react'
 import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from '@mui/icons-material/Chat';
 import ClassIcon from '@mui/icons-material/Class';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import QuizIcon from '@mui/icons-material/Quiz';
 import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 import "./comp-css/sidebar.css"
 import { Link, Outlet, useNavigate } from 'react-router-dom';
@@ -30,10 +30,12 @@ export const Sidebar = () => {
                     <label htmlFor="">Class</label>
                 </Link>
             </div>
-            <div className="side-icons">
-                <CalendarMonthIcon />
-                <label htmlFor="">Calender</label>
-            </div>
+            {/* <div className="side-icons">
+                <Link className='icons-links' to={"/dashboard/test"}>
+                <QuizIcon />
+                <label htmlFor="">Quiz</label>
+                </Link>
+            </div> */}
             <div className="side-icons">
                 <Link className='icons-links' to={"/dashboard/assignment"}>
                     <AssignmentSharpIcon />

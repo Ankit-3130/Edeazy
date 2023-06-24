@@ -84,19 +84,19 @@ const Chatroom = () => {
 
 
   const fetchChats = async () => {
-    console.log(logu.token);
+   
     try {
       const config = {
         headers: {
           Authorization: `Bearer ${logu.token}`,
         },
       };
-      console.log(config);
+      //console.log(config);
       const { data } = await axios.get("http://localhost:3001/api/chat", config);
-      console.log(data);
+      //console.log(data);
       setChat(data);
     } catch (error) {
-      console.log(error)
+      //console.log(error)
     }
   };
 
@@ -155,7 +155,7 @@ const Chatroom = () => {
           </div>
 
           <div className="created-contacts" style={{ display: !open ? "block" : "none" }}>
-            {console.log(chat)}
+           
             {chat.map((cred) => {
               return (
                 <ChatList
