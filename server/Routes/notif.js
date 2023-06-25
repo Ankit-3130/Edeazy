@@ -5,6 +5,7 @@ const verifyToken = require("../middlewares/verifytoken");
 const User = require("../schemas/user");
 const Message = require("../schemas/messages");
 
+//path to get all the notification of user
 
 router.get('/',verifyToken,async(req,res)=>{
     try{
@@ -14,6 +15,9 @@ router.get('/',verifyToken,async(req,res)=>{
         console.log(error);
     }
 })
+
+//path to add notification
+
 router.post('/',verifyToken,async(req,res)=>{
     try {
         const Chatrec = req.body.recChat;
@@ -39,6 +43,9 @@ router.post('/',verifyToken,async(req,res)=>{
         console.log(error);
     }
 });
+
+//path to update the notification with recent notification
+
 router.post('/update',verifyToken,async(req,res)=>{
     try {
         const Chatrec = req.body.recChat;
@@ -62,6 +69,9 @@ router.post('/update',verifyToken,async(req,res)=>{
         console.log(error);
     }
 });
+
+//path to remove the notification
+
 router.post('/remove',verifyToken,async(req,res)=>{
     try {
         const Chatrec = req.body.recChat;

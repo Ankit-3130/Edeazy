@@ -46,6 +46,8 @@ const DashProfile = () => {
     socket.emit("setup", user);
     // eslint-disable-next-line
   }, []);
+
+  //notifications logic
   useEffect(() => {
     socket.on("message recieved", async(newMessageRecieved) => {
       var i;
@@ -86,6 +88,8 @@ const DashProfile = () => {
     });
   });
 
+  //handling when notification is clicked
+  
   const onclick = async(chat) => {
     setChatSelect(true);
     setSelectedChat(chat.chatref);

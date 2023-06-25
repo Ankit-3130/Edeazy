@@ -8,7 +8,7 @@ import axios from 'axios';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import io from "socket.io-client";
 
-const ENDPOINT = "http://localhost:3001"; 
+const ENDPOINT = "http://localhost:3001";
 var socket, selectedChatCompare;
 
 
@@ -16,8 +16,8 @@ const Chatbox = () => {
 
   const [message, setMessage] = useState([]);
   const [inputmsg, setInputMsg] = useState("");
-  const { chatSelect, user, setChatSelect, selectedChat} = Appstate();
-  
+  const { chatSelect, user, setChatSelect, selectedChat } = Appstate();
+
   //Api call to fetch messages
 
   const fetchMessages = async () => {
@@ -56,9 +56,9 @@ const Chatbox = () => {
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
       if (
-        !selectedChatCompare ||selectedChatCompare !== newMessageRecieved
+        !selectedChatCompare || selectedChatCompare !== newMessageRecieved
       ) {
-        
+
       } else {
         setMessage([...message, newMessageRecieved]);
       }
@@ -94,7 +94,7 @@ const Chatbox = () => {
     <>
       {
         chatSelect ? <>
-          <div style={{ height: "100%", width: "100%", position: "relative",background:"#936cbe3f"}}>
+          <div style={{ height: "100%", width: "100%", position: "relative", background: "#936cbe3f" }}>
             <Boxhead>
               <button style={{ position: 'absolute', left: '0' }} onClick={() => { setChatSelect(false) }}>
                 <ArrowBackIcon />

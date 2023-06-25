@@ -30,12 +30,6 @@ export const Sidebar = () => {
                     <label htmlFor="">Class</label>
                 </Link>
             </div>
-            {/* <div className="side-icons">
-                <Link className='icons-links' to={"/dashboard/test"}>
-                <QuizIcon />
-                <label htmlFor="">Quiz</label>
-                </Link>
-            </div> */}
             <div className="side-icons">
                 <Link className='icons-links' to={"/dashboard/assignment"}>
                     <AssignmentSharpIcon />
