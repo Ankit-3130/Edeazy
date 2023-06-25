@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styled,{keyframes} from 'styled-components'
 import axios from 'axios';
-
+import SubmitAsses from './miscellaneous/SubmitAsses';
 
 export const Assignment = () => {
 
   const [allAssign, setAllAssign] = useState([]);
   const [logged, setLogged] = useState({});
-  const [open, setOpen] = useState(false);
-
+  const [open, setOpen] = useState(true);
+  const [selectAssign,setSelectAssign]=useState({});
   //use Effects to trigger the fetchAssignments function
   useEffect(() => {
     const userInfo1 = JSON.parse(localStorage.getItem("userInfo"));
@@ -16,8 +16,24 @@ export const Assignment = () => {
   }, []);
   useEffect(() => {
     fetchAssignments();
-  }, [logged]);
+  }, [logged,open]);
 
+  const downAssign = async (props) => {
+    console.log(props);
+    try {
+      const data1=props;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${logged.token}`,
+          
+        },
+      };
+      const { data } = await axios.get(`http://localhost:3001/assignment/downloads/${data1._id}`, config);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   //function to fetch all assignments 
 
   const fetchAssignments = async () => {
@@ -33,10 +49,15 @@ export const Assignment = () => {
     } catch (error) {
       console.log(error.message);
     }
+  };
+  const setclick= (props)=>{
+    downAssign(props);
+    setOpen(false);
+    setSelectAssign(props);
   }
-
   return (
     <Assignouter>
+      {open?<>
       <Header style={{backgroundColor:'#9932CC', color:'#fff'}}>
         <span style={{ gridColumn: '1/2' }}>Assignment Name</span>
         <Midspan style={{ gridColumn: '2/3' }}>Assigned By</Midspan>
@@ -45,24 +66,26 @@ export const Assignment = () => {
       {
         allAssign && allAssign.map((a, i) => {
           console.log(a);
-          return (
-            <>
-              <Header>
+          return ( <Header onClick={()=>setclick(a)} key={i}>
                 <span style={{ gridColumn: '1/2' }}>{a.assignname}</span>
                 <Midspan style={{ gridColumn: '2/3' }}>{a.admin.name}</Midspan>
                 <span style={{ gridColumn: '3/4' }}>{a.dueDate.substring(0,10)}</span>
               </Header>
 
-            </>
+            
           )
         })
+      }
+      </>:<>
+        <SubmitAsses assign={selectAssign} onclick={()=>{setOpen(!open)}}/>
+      </>
       }
     </Assignouter>
   )
 };
 
 const Assignouter = styled.div`
-margin:4% 4%;
+margin:2% 4%;
 width:100%;
 height:100%;
 display:flex;

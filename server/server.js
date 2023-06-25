@@ -17,7 +17,7 @@ app.use('/api/chat',require("./Routes/chat"));
 app.use('/api/message',require("./Routes/msg"));
 app.use('/api/group',require('./Routes/group'));
 app.use('/assignment',require('./Routes/assign'));
-
+app.use('/notif',require('./Routes/notif'));
 const server=app.listen(3001,()=>{
     console.log("successfully connected to port 3001 ");
 })

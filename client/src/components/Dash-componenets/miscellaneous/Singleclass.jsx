@@ -8,6 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Appstate } from '../../../context/contextApi';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from 'react-router-dom';
 
 
 const Singleclass = (props) => {
@@ -17,7 +18,7 @@ const Singleclass = (props) => {
   const [name, setName] = useState("");
   const { user, selectClass, setSelectClass } = Appstate();
   const fileref = useRef();
-
+  const navigate=useNavigate();
   
   const onassign = () => {
     fileref.current.click();
@@ -46,6 +47,7 @@ const Singleclass = (props) => {
     const data1 = new FormData();
     data1.append("assignname", name);
     data1.append("dueDate", date);
+    data1.append("name",file.name);
     data1.append("grp", selectClass._id);
     data1.append("file", file);
     try {
@@ -126,17 +128,27 @@ const Singleclass = (props) => {
 
             </> :
               <>
-                <Classcard>
-                  <h2 style={{ marginBottom: "10%", textAlign: "center" }}>Create Assignment</h2>
-                  <Button style={{ padding: "5%" }} onClick={() => { setAssign(true) }}>
-                    <h3 style={{ padding: "2%" }}>Create</h3>
-                    <CreateIcon style={{ padding: "2%" }} />
-                  </Button>
-
+              {user.user_type==="TEACHER"?<Classcard>
+                <h2 style={{ marginBottom: "10%", textAlign: "center" }}>Create Assignment</h2>
+                <Button style={{ padding: "5%" }} onClick={() => { setAssign(true) }}>
+                  <h3 style={{ padding: "2%" }}>Create</h3>
+                  <CreateIcon style={{ padding: "2%" }} />
+                </Button>
+              </Classcard>
+                :<Classcard>
+                <h2 style={{ marginBottom: "10%", textAlign: "center" }}>Check Assignment</h2>
+                <Button style={{ padding: "5%" }} onClick={() => { navigate("/dashboard/assignment") }}>
+                  <h3 style={{ padding: "2%" }}>Check</h3>
+                  <CreateIcon style={{ padding: "2%" }} />
+                </Button>
                 </Classcard>
+              }
+
                 <Classcard>
-                  <h2 style={{ marginBottom: "10%" }}>Start Class</h2>
-                  <Button>Upload</Button>
+                  <h2 style={{ marginBottom: "10%" }}>Class Code</h2>
+                  <Button style={{ padding: "5%" }}>
+                    <h3 style={{ padding: "2%" }}>{selectClass.classCode}</h3>
+                  </Button>
                 </Classcard>
               </>
           }

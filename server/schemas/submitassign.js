@@ -2,9 +2,9 @@ const mongoose=require('mongoose');
 
 
 const submitSchema= mongoose.Schema({
-    assignment_id:{
+    user:{
         type:mongoose.Schema.Types.ObjectId,
-        ref: "Assign"
+        ref: "User"
     },
     path: {
         type: String,

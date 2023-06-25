@@ -8,6 +8,7 @@ const multer = require('multer');
 const path = require('path');
 const Assign = require('../schemas/assignmentSchema');
 const SubmitAssign = require('../schemas/submitassign');
+const { Console } = require("console");
 
 
 //MULTER CONFIG
@@ -21,7 +22,7 @@ var type = upload.single('file');
 router.post('/', type, async (req, res) => {
     const { assignname, dueDate, grp } = req.body;
     console.log(grp);
-    const filename = req.file.filename;
+    const filename = req.file.originalname;
     const path = req.file.path;
     const group = await Group.findById(grp);
     try {
@@ -75,19 +76,25 @@ router.get('/:usertype', verifyToken, async (req, res) => {
 
 
 //Route to submit the assignment by the students
-
-
 router.post('/:AssignId',type, async (req, res) => {
     const assign_id = req.params.AssignId;
+
+    const filename = req.file.originalname;
+    const path = req.file.path;
     try {
-        const sumit_assignment = await SubmitAssign.create({
-            assignment_id: assign_id,
-            path: req.file.path,
-            filename: req.file.filename,
+        const submit_assignment = await SubmitAssign.create({
+            user: req.body.user,
+            path: path,
+            filename: filename,
         });
-        var Assign = await Group.findOneAndUpdate({ _id: assign_id }, {
-            $pull: { users: req.user._id }
+       
+        var update_Assign = await Assign.findOneAndUpdate({ _id: assign_id }, {
+            $push: { submit:submit_assignment} , $pull: { users:req.body.user }
         });
+        
+           
+    
+
 
         res.status(200).json("assignment submitted successfully")
     } catch (error) {
@@ -95,5 +102,15 @@ router.post('/:AssignId',type, async (req, res) => {
     }
 })
 
+//Route to download the assignment
+router.get('/downloads/:AssignId',type, async (req, res) => {
+    const assign_id = req.params.AssignId;
+    try {
+        const file1= await Assign.findById(assign_id);
+        res.download(file1.path, file1.filename);
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 module.exports = router;

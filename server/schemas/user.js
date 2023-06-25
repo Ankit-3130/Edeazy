@@ -21,7 +21,8 @@ const userSchema=new mongoose.Schema({
     password:{
         type:String,
         required:true
-    }
+    },
+    notif:[]
 });
 
 const User=mongoose.model("User",userSchema);

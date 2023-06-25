@@ -10,12 +10,12 @@ const AppProvider = ({ children }) => {
   const [chatSelect,setChatSelect]=useState(false);
   const [classes,setClasses]=useState([]);
   const [selectClass,setSelectClass]=useState({});
-
+  const [notification,setNotification]=useState([]);
   const navigate= useNavigate();
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(userInfo);
+    
     setUser(userInfo);
   }, [navigate]);
 
@@ -31,7 +31,10 @@ const AppProvider = ({ children }) => {
         chatSelect,
         setChatSelect,
         classes,setClasses,
-        selectClass,setSelectClass
+        selectClass,
+        setSelectClass,
+        notification,
+        setNotification
       }}
     >
       {children}
